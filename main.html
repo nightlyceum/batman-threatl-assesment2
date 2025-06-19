@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criminal Assessment Console</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    </head>
+<body>
+    <div class="header">
+        <img src="ES1Lwj01.svg" alt="Gotham City Police Department Logo" class="header-logo">
+        <h1>GCPD Main Operations Console</h1>
+        <div class="system-status">
+            <p>Status: <span class="status-indicator online">Online</span></p>
+            <p>Time: <span id="systemTime"></span></p>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#" class="nav-item active" data-section="criminal-database">Criminal Database</a></li>
+                <li><a href="#" class="nav-item" data-section="tip-submission">Tip Submission</a></li>
+                <li><a href="#" class="nav-item" data-section="system-logs">System Logs</a></li>
+            </ul>
+        </div>
+
+        <div class="content-area">
+            <section id="criminal-database" class="console-section active">
+                <h2>Criminal Database</h2>
+                <div class="search-container">
+                    <input type="text" id="criminalSearchInput" placeholder="Search by Name or Allias...">
+                    <button id="searchButton">Search</button>
+                </div>
+                <div id="criminalResults" class="results-container">
+                   <p class="initial-message">Enter a name or alias to search the database.</p>
+                </div>
+            </section>
+            <section id="tip-submission" class="console-section hidden">
+                <h2>Submit New Intel</h2>
+                <p>Report any suspicious activity or tips to the Gotham City Police Department.</p>
+
+                <form id="tipSubmissionForm" class="tip-form">
+                    <div class="form-group">
+                        <label for="tipCategory">Category:</label>
+                        <select id="tipCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Suspicious Activity">Suspicious Activity</option>
+                            <option value="Criminal Sighting">Criminal Sighting</option>
+                            <option value="Drug Activity">Drug Activity</option>
+                            <option value="Gang Activity">Gang Activity</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipSubject">Subject (Optional):</label>
+                        <input type="text" id="tipSubject" placeholder="Brief subject line">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipDescription">Description:</label>
+                        <textarea id="tipDescription" rows="7" placeholder=
+                            "Criminal Name: (if known)
+                            Location: (if known)
+                            Time: (if known)
+                            Description: (eg., specific details, witnesses, etc.)
+                            Threat Level: (eg, low, medium, high, extreme)
+                            Evidence: (eg, photos, videos, etc.)
+                            User contact information: (Please fill)" required></textarea>
+                    </div>
+
+                    <button type="submit">Submit Intel</button>
+                </form>
+
+                <div id="tipSubmissionMessage"></div>
+
+                <div class="recent-tips">
+                    <h3>Recent Intel Submissions</h3>
+                    <div id="submittedTipsList"></div>
+                </div>
+            </section>
+            <section id="system-logs" class="console-section hidden">
+                <h2>System Activity Logs</h2>
+                <p>Review system operational logs.</p>
+            </section>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2018 Gotham City Police Department. All rights reserved.</p>
+    </div>
+
+    <script src="main.js"></script>
