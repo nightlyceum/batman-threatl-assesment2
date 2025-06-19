@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
       respondMessage.textContent = "Access granted. Welcome, Detective.";
       respondMessage.style.color = "lightgreen";
       // Redirect to main.html after a short delay
+      localStorage.setItem("access_granted", "yes");
       if(loginContainer) {
         loginContainer.style.opacity = '0';
         setTimeout(()=> {
