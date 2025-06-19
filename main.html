@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criminal Assessment Console</title>
     <link href="main.css" rel="stylesheet" type="text/css" />
-    </head>
+    <script>
+      // เช็คว่าต้องล็อกอินก่อน
+      if (!localStorage.getItem("access_granted")) {
+        window.location.href = "index.html";
+      }
+    </script>
+</head>
 <body>
     <div class="header">
         <img src="ES1Lwj01.svg" alt="Gotham City Police Department Logo" class="header-logo">
@@ -15,7 +21,6 @@
             <p>Time: <span id="systemTime"></span></p>
         </div>
     </div>
-
     <div class="main-layout">
         <div class="sidebar">
             <h2>Menu</h2>
@@ -25,12 +30,11 @@
                 <li><a href="#" class="nav-item" data-section="system-logs">System Logs</a></li>
             </ul>
         </div>
-
         <div class="content-area">
             <section id="criminal-database" class="console-section active">
                 <h2>Criminal Database</h2>
                 <div class="search-container">
-                    <input type="text" id="criminalSearchInput" placeholder="Search by Name or Allias...">
+                    <input type="text" id="criminalSearchInput" placeholder="Search by Name or Alias...">
                     <button id="searchButton">Search</button>
                 </div>
                 <div id="criminalResults" class="results-container">
@@ -40,7 +44,6 @@
             <section id="tip-submission" class="console-section hidden">
                 <h2>Submit New Intel</h2>
                 <p>Report any suspicious activity or tips to the Gotham City Police Department.</p>
-
                 <form id="tipSubmissionForm" class="tip-form">
                     <div class="form-group">
                         <label for="tipCategory">Category:</label>
@@ -53,12 +56,10 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="tipSubject">Subject (Optional):</label>
                         <input type="text" id="tipSubject" placeholder="Brief subject line">
                     </div>
-
                     <div class="form-group">
                         <label for="tipDescription">Description:</label>
                         <textarea id="tipDescription" rows="7" placeholder=
@@ -70,12 +71,9 @@
                             Evidence: (eg, photos, videos, etc.)
                             User contact information: (Please fill)" required></textarea>
                     </div>
-
                     <button type="submit">Submit Intel</button>
                 </form>
-
                 <div id="tipSubmissionMessage"></div>
-
                 <div class="recent-tips">
                     <h3>Recent Intel Submissions</h3>
                     <div id="submittedTipsList"></div>
@@ -90,5 +88,6 @@
     <div class="footer">
         <p>&copy; 2018 Gotham City Police Department. All rights reserved.</p>
     </div>
-
     <script src="main.js"></script>
+</body>
+</html>
